@@ -1,0 +1,122 @@
+
+body {
+    background-color: rgb(120, 230, 120);
+    margin: 0px;
+}
+
+
+
+    .menu{
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        height: 98vh;
+        z-index: 1000;
+    }
+    
+    .menuItems {
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 35px;
+        background: #f5f5f5;
+        float: left;
+        text-align: center;
+        margin-right: 5px;
+        width: 80px;
+        height: 30px;
+    }
+
+    .menuItems:hover {
+        background: rgb(192, 190, 190);
+    }
+
+	.container {
+		width: 78vh;
+		height: 78vh;
+		perspective: 1600px;
+		perspective-origin: 150% -7%;
+        position: absolute;
+        left: 40vh;
+        
+	}
+
+		.cube {
+			transform-style: preserve-3d;
+			position: relative;
+			width: 78vh;
+			height: 78vh;
+			transition: 1s;
+		}
+
+			.cube div {
+				width: 78vh;
+				height: 78vh;
+				background: rgba(253, 253, 253, 1);
+				position: absolute;
+				border: 1px solid rgb(224, 224, 224);
+				text-align: center;
+				color: rgb(68, 67, 67);
+				font: 3em arial;
+			}
+
+				.front {
+					transform: translateZ(39vh);
+				}
+
+				.left {
+					transform: rotateY(-90deg) translateZ(39vh);
+				}
+
+				.right {
+					transform: rotateY(90deg) translateZ(39vh);
+				}
+
+				.top {
+					transform: rotateX(90deg) translateZ(39vh);
+				}
+
+				.bottom {
+					transform: rotateX(-90deg) translateZ(39vh);
+				}
+
+				.back {
+					transform: rotateY(180deg) translateZ(39vh);
+				}
+
+				
+				input {
+					position: absolute;
+					left: -9999px;
+				}
+
+				input:checked + label {
+					font-weight: bold;
+				}
+
+				input[value="front"]:checked ~ .container .cube {
+					transform: rotateY(0);
+				}
+
+				input[value="left"]:checked ~ .container .cube {
+					transform: rotateY(90deg);
+				}
+
+				input[value="right"]:checked ~ .container .cube {
+					transform: rotateY(-90deg);
+				}
+
+				input[value="top"]:checked ~ .container .cube {
+					transform: rotateX(-90deg);
+				}
+
+				input[value="bottom"]:checked ~ .container .cube {
+					transform: rotateX(90deg);
+				}
+
+				input[value="back"]:checked ~ .container .cube {
+					transform: rotateY(180deg);
+				}
